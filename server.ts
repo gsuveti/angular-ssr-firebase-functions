@@ -8,7 +8,7 @@ import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
 
 import * as express from 'express';
 import {join} from 'path';
-
+(global as any).XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
