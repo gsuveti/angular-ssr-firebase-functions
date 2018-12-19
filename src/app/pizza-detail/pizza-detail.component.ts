@@ -9,8 +9,8 @@ import {Observable} from 'rxjs';
   styleUrls: ['./pizza-detail.component.scss']
 })
 export class PizzaDetailComponent implements OnInit {
-  private pizzas: Observable<any[]>;
-  private reviews: Observable<any[]>;
+  pizzas: Observable<any[]>;
+  reviews: Observable<any[]>;
 
   constructor(private db: AngularFirestore, private route: ActivatedRoute) {
   }
