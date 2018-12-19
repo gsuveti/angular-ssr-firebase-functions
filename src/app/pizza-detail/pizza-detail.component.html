@@ -1,0 +1,23 @@
+<div class="pizzas">
+  <mat-card class="pizza-card" *ngFor="let pizza of pizzas | async">
+    <mat-card-header>
+      <mat-card-title>{{pizza.name}}</mat-card-title>
+      <mat-card-subtitle>{{pizza.price}}$</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{pizza.picture}}" height="300px" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [routerLink]="[pizza.name]">DETAILS</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div class="reviews">
+  <mat-card class="review-card" *ngFor="let review of reviews | async">
+    <mat-card-header>
+      <mat-card-subtitle>{{review.name}}</mat-card-subtitle>
+      <mat-card-title>{{review.comment}}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
