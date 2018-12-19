@@ -6,7 +6,7 @@
     ],
     "module": "commonjs",
     "noImplicitReturns": true,
-    "outDir": "lib",
+    "outDir": "../dist",
     "sourceMap": true,
     "target": "es6"
   },

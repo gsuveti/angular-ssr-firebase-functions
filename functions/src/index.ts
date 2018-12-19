@@ -18,7 +18,7 @@ enableProdMode();
 // Express server
 const app = express();
 
-const DIST_FOLDER = join(process.cwd(), 'lib/browser');
+const DIST_FOLDER = join(process.cwd(), 'browser');
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./server/main');
@@ -42,7 +42,7 @@ app.get('*.*', express.static(DIST_FOLDER));
 
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
-  res.set('Cache-Control', 'public, max-age=600, s-maxage=1200');
+  res.set('Cache-Control', 'public, max-age=600, s-maxage=6000');
   res.render('index', {req});
 });
 

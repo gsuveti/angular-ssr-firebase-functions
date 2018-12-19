@@ -11,7 +11,13 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run angular-ssr-firebase-functions:server:production"
+    "build:client-and-server-bundles": "ng build --prod && ng run angular-ssr-firebase-functions:server:production",
+    "functions:lint": "tslint --project functions",
+    "functions:build": "tsc -p functions && cp package.json dist",
+    "functions:serve": "npm run functions:build && firebase serve --only functions",
+    "functions:shell": "npm run functions:build && firebase functions:shell",
+    "functions:deploy": "firebase deploy --only functions",
+    "functions:logs": "firebase functions:log"
   },
   "private": true,
   "dependencies": {
@@ -33,7 +39,10 @@
     "core-js": "^2.5.4",
     "express": "^4.15.2",
     "firebase": "^5.7.0",
+    "firebase-admin": "^6.4.0",
+    "firebase-functions": "^2.1.0",
     "hammerjs": "^2.0.8",
+    "reflect-metadata": "^0.1.12",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "xmlhttprequest": "^1.8.0",
